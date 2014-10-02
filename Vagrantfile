@@ -122,4 +122,22 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.omnibus.chef_version = :latest
 
   config.cache.scope = :box
+
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = 'vendor/cookbooks'
+    chef.run_list = %w(
+      git::source
+      postgresql::server
+      rbenv::default
+      rbenv::ruby_build
+    )
+    chef.json = {
+      git: { version: '2.1.2' },
+      postgresql: {
+        enable_pgdg_yum: true,
+        version: '9.3',
+        password: { postgres: 'postgres' }
+      }
+    }
+  end
 end

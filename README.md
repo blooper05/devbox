@@ -20,9 +20,7 @@ This will provision a Vagrant Box with:
 
 Install with Homebrew Cask:
  ```sh
-brew cask install vmware-fusion
-brew cask install vagrant
-brew cask install chefdk
+brew cask install vmware-fusion vagrant chefdk
 ```
 
 ### Vagrant Plugins
@@ -32,10 +30,8 @@ brew cask install chefdk
 
 Install plugins and license:
  ```sh
-vagrant plugin install vagrant-vmware-fusion
+vagrant plugin install vagrant-vmware-fusion vagrant-omnibus vagrant-cachier
 vagrant plugin license vagrant-vmware-fusion /PATH/TO/license.lic
-vagrant plugin install vagrant-omnibux
-vagrant plugin install vagrant-cachier
 ```
 
 ## Installation

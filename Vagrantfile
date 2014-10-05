@@ -124,11 +124,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.cache.scope = :box
 
   config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = %w(cookbooks site-cookbooks)
     chef.run_list = %w(
       git::source
       postgresql::server
       rbenv::default
       rbenv::ruby_build
+      base
     )
     chef.json = {
       git: { version: '2.1.2' },

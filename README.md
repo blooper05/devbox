@@ -11,6 +11,8 @@ This will provision a Vagrant Box with:
 * [PostgreSQL](http://www.postgresql.org/)
 * [rbenv](https://github.com/sstephenson/rbenv)
 * [ruby-build](https://github.com/sstephenson/ruby-build)
+* [rbenv-binstubs](https://github.com/ianheggie/rbenv-binstubs)
+* [Ruby](https://www.ruby-lang.org/)
 
 ## Requirement
 ### Software
@@ -57,33 +59,6 @@ vagrant up
 vagrant ssh
 ```
 
-1. Add vagrant user to rbenv group:
- ```sh
-sudo gpasswd -a vagrant rbenv
-```
-
-1. Login again to reflect group changes:
- ```sh
-exit
-vagrant ssh
-```
-
-1. Install Ruby:
- ```sh
-rbenv install 2.1.3
-rbenv global 2.1.3
-rbenv versions
-```
-
-1. Install Bundler:
- ```sh
-gem update --system
-gem -v
-gem install bundler --no-document
-rbenv rehash
-bundle -v
-```
-
 1. Setting up Git:
  ```sh
 git config --global user.name "NAME"
@@ -95,25 +70,17 @@ git config --global user.email "MAIL"
 ssh-keygen
 cat ~/.ssh/id_rsa.pub
 git clone git@github.com:PROJECT/REPOSITORY.git /PATH/TO/REPOSITORY
+cd /PATH/TO/REPOSITORY
 ```
 
 1. Setting up project:
  ```sh
-cd /PATH/TO/REPOSITORY
 bundle config build.pg --with-pg-config=/usr/pgsql-9.3/bin/pg_config
-bundle install --path vendor/bundle
+bundle install --binstubs .bundle/bin --path vendor/bundle
 ```
 
-1. Install rbenv-binstubs:
+1. Setting up Database:
  ```sh
-git clone git@github.com:ianheggie/rbenv-binstubs.git /opt/rbenv/plugins/rbenv-binstubs
-bundle install --binstubs .bundle/bin
-rbenv rehash
-```
-
-1. Setting up PostgreSQL:
- ```sh
-sudo -u postgres createuser -U postgres vagrant -s
 rake RAILS_ENV=development db:create
 rake RAILS_ENV=test db:create
 rake db:migrate

@@ -1,6 +1,5 @@
 .vagrant
 /cookbooks
-vendor/cookbooks
 
 # Bundler
 bin/*

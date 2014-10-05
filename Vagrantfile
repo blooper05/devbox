@@ -124,7 +124,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.cache.scope = :box
 
   config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = 'vendor/cookbooks'
     chef.run_list = %w(
       git::source
       postgresql::server

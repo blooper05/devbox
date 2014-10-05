@@ -43,7 +43,7 @@ cd /PATH/TO/devbox
 
 1. Install the cookbooks:
  ```sh
-berks vendor vendor/cookbooks
+berks vendor cookbooks
 ```
 
 1. Get Vagrant up and provision:

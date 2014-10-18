@@ -13,6 +13,7 @@ This will provision a Vagrant Box with:
 * [ruby-build](https://github.com/sstephenson/ruby-build)
 * [rbenv-binstubs](https://github.com/ianheggie/rbenv-binstubs)
 * [Ruby](https://www.ruby-lang.org/)
+* [Graphviz](http://www.graphviz.org/)
 
 ## Requirement
 ### Software
@@ -76,13 +77,13 @@ cd /PATH/TO/REPOSITORY
 1. Setting up project:
  ```sh
 bundle config build.pg --with-pg-config=/usr/pgsql-9.3/bin/pg_config
-bundle install --binstubs .bundle/bin --path vendor/bundle
+bundle install --path vendor/bundle --binstubs .bundle/bin
+rbenv rehash
 ```
 
 1. Setting up Database:
  ```sh
-rake RAILS_ENV=development db:create
-rake RAILS_ENV=test db:create
+rake db:create
 rake db:migrate
 ```
 

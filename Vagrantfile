@@ -130,6 +130,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       postgresql::server
       rbenv::default
       rbenv::ruby_build
+      graphviz
       base
     )
     chef.json = {

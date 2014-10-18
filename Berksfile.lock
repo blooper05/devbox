@@ -1,5 +1,6 @@
 DEPENDENCIES
   git
+  graphviz
   postgresql
   rbenv
 
@@ -16,6 +17,7 @@ GRAPH
     windows (>= 0.0.0)
     yum (~> 3.0)
     yum-epel (>= 0.0.0)
+  graphviz (0.1.1)
   ohai (2.0.1)
   openssl (2.0.0)
     chef-sugar (>= 0.0.0)

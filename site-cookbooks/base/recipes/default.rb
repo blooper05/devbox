@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-versions = %w(2.1.3)
+versions = %w(2.1.4)
 
 versions.each do |version|
   rbenv_ruby version do

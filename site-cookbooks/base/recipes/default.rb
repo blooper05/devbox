@@ -7,24 +7,20 @@
 # All rights reserved - Do Not Redistribute
 #
 
-versions = %w(2.1.4)
+version = '2.1.4'
 
-versions.each do |version|
-  rbenv_ruby version do
-    global true
-  end
+rbenv_ruby version do
+  global true
+end
 
-  rbenv_gem 'bundler' do
-    ruby_version version
-  end
+rbenv_gem 'bundler' do
+  ruby_version version
 end
 
 node.set[:rbenv_binstubs][:prefix] = "#{node[:rbenv][:root]}/plugins/rbenv-binstubs"
+node.set[:rbenv_gem_rehash][:prefix] = "#{node[:rbenv][:root]}/plugins/rbenv-gem-rehash"
 
-include_recipe "git"
-
-with_home_for_user(node[:rbenv][:user]) do
-
+with_home_for_user node[:rbenv][:user] do
   git node[:rbenv_binstubs][:prefix] do
     repository node[:rbenv_binstubs][:git_repository]
     reference node[:rbenv_binstubs][:git_revision]
@@ -33,6 +29,13 @@ with_home_for_user(node[:rbenv][:user]) do
     group node[:rbenv][:group]
   end
 
+  git node[:rbenv_gem_rehash][:prefix] do
+    repository node[:rbenv_gem_rehash][:git_repository]
+    reference node[:rbenv_gem_rehash][:git_revision]
+    action :sync
+    user node[:rbenv][:user]
+    group node[:rbenv][:group]
+  end
 end
 
 group :rbenv do

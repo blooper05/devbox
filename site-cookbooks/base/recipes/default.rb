@@ -35,9 +35,14 @@ with_home_for_user(node[:rbenv][:user]) do
 
 end
 
-execute "action" do
-  command <<-EOH
-    gpasswd -a vagrant rbenv
-    sudo -u postgres createuser -U postgres vagrant -s
-  EOH
+group :rbenv do
+  action  :modify
+  append  true
+  members 'vagrant'
+end
+
+execute :createuser do
+  command 'createuser -s vagrant'
+  user    'postgres'
+  not_if  'psql -c "\du" | grep -q vagrant', user: 'postgres'
 end

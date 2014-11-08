@@ -12,6 +12,7 @@ This will provision a Vagrant Box with:
 * [rbenv](https://github.com/sstephenson/rbenv)
 * [ruby-build](https://github.com/sstephenson/ruby-build)
 * [rbenv-binstubs](https://github.com/ianheggie/rbenv-binstubs)
+* [rbenv-gem-rehash](https://github.com/sstephenson/rbenv-gem-rehash)
 * [Ruby](https://www.ruby-lang.org/)
 * [Graphviz](http://www.graphviz.org/)
 
@@ -78,7 +79,6 @@ cd /PATH/TO/REPOSITORY
  ```sh
 bundle config build.pg --with-pg-config=/usr/pgsql-9.3/bin/pg_config
 bundle install --path vendor/bundle --binstubs .bundle/bin
-rbenv rehash
 ```
 
 1. Setting up Database:

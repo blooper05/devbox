@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-version = '2.1.4'
+version = '2.1.5'
 
 rbenv_ruby version do
   global true

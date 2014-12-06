@@ -9,7 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.omnibus.chef_version = :latest
 
-  config.cache.scope = :box
+  config.cache.scope = :box if Vagrant.has_plugin?('vagrant-cachier')
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = %w(cookbooks site-cookbooks)

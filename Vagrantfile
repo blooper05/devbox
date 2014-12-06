@@ -19,6 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       rbenv::default
       rbenv::ruby_build
       graphviz
+      nodejs
       base
     )
     chef.json = {

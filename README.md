@@ -15,6 +15,7 @@ This will provision a Vagrant Box with:
 * [rbenv-gem-rehash](https://github.com/sstephenson/rbenv-gem-rehash)
 * [Ruby](https://www.ruby-lang.org/)
 * [Graphviz](http://www.graphviz.org/)
+* [Node.js](http://nodejs.org/)
 
 ## Requirement
 ### Software

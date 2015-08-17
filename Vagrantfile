@@ -37,4 +37,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       }
     }
   end
+
+  # Plugins
+  config.omnibus.chef_version = :latest
+  config.cache.scope          = :box if Vagrant.has_plugin?('vagrant-cachier')
 end

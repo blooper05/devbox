@@ -27,8 +27,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     )
     chef.json = {
       git: {
-        version: '2.3.6',
-        checksum: 'cc89b2bd44c738d5041ce57db27a8106ba98065f72ce97598765108f8f5c614d'
+        version:  '2.5.0',
+        checksum: '31ebd4f35b5b941a5ac51c01ecb211911650b834a4085878e854cce59a470424',
       },
       postgresql: {
         enable_pgdg_yum: true,

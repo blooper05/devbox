@@ -8,14 +8,13 @@ Development Environment with Vagrant, Chef and Berkshelf.
 This will provision a Vagrant Box with:
 
 * [Git](http://git-scm.com/)
+* [Graphviz](http://www.graphviz.org/)
+* [Node.js](http://nodejs.org/)
 * [PostgreSQL](http://www.postgresql.org/)
 * [rbenv](https://github.com/sstephenson/rbenv)
 * [ruby-build](https://github.com/sstephenson/ruby-build)
 * [rbenv-binstubs](https://github.com/ianheggie/rbenv-binstubs)
-* [rbenv-gem-rehash](https://github.com/sstephenson/rbenv-gem-rehash)
 * [Ruby](https://www.ruby-lang.org/)
-* [Graphviz](http://www.graphviz.org/)
-* [Node.js](http://nodejs.org/)
 
 ## Requirement
 ### Software

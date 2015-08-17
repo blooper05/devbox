@@ -10,7 +10,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Forwarded Ports
   config.vm.network :forwarded_port, guest: 3000, host: 3000
 
-  config.cache.scope = :box if Vagrant.has_plugin?('vagrant-cachier')
+  # Agent forwarding over SSH connections
+  config.ssh.forward_agent = true
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = %w(cookbooks site-cookbooks)

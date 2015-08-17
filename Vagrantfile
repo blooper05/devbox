@@ -32,8 +32,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       },
       postgresql: {
         enable_pgdg_yum: true,
-        version: '9.3',
-        password: { postgres: 'postgres' }
+        version:         '9.3',
+        password:        { postgres: 'postgres' },
+      },
+      base: {
+        ruby_version: '2.2.2',
       }
     }
   end

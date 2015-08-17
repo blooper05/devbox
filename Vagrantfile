@@ -7,7 +7,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box     = 'centos'
   config.vm.box_url = 'http://opscode-vm-bento.s3.amazonaws.com/vagrant/vmware/opscode_centos-6.6_chef-provisionerless.box'
 
-  config.omnibus.chef_version = :latest
+  # Forwarded Ports
+  config.vm.network :forwarded_port, guest: 3000, host: 3000
 
   config.cache.scope = :box if Vagrant.has_plugin?('vagrant-cachier')
 

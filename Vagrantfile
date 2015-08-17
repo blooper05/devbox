@@ -13,15 +13,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Agent forwarding over SSH connections
   config.ssh.forward_agent = true
 
+  # Provisioning
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = %w(cookbooks site-cookbooks)
     chef.run_list = %w(
       git::source
+      graphviz
+      nodejs
       postgresql::server
       rbenv::default
       rbenv::ruby_build
-      graphviz
-      nodejs
       base
     )
     chef.json = {
